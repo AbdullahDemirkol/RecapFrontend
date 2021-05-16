@@ -1,0 +1,29 @@
+<div class="text-center mt-5" *ngIf="dataLoaded==false">
+  <div class="spinner-grow text-danger" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+  <div class="spinner-grow text-warning" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+  <div class="spinner-grow text-info" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+
+<div class="row row-cols-1 row-cols-md-2 g-4 mt-3">
+  <div class="col" *ngFor="let car of cardetails">
+    <div class="card">
+      <img src="" class="card-img-top" alt="..." />
+      <div class="card-body">
+        <div class="row">
+          <h5 class="card-title">
+            {{ car.brandName }} {{ car.description }}
+            <span class="float-end" style="color: red;" > {{ car.dailyPrice }}$ </span>
+          </h5>
+        </div>
+        <p class="card-text">Yıl : {{ car.modelYear }}</p>
+        <p class="card-text">Renk : {{ car.colorName }}</p>
+      </div>
+    </div>
+  </div>
+</div>
