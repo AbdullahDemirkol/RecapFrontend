@@ -1,5 +1,3 @@
-
-
 <div class="list-group mt-5">
   <p class="btn-success text-center mx-5 btn" style="border-radius: 15px;">Markalar</p>
   <div class="text-center" *ngIf="dataLoaded==false">
@@ -17,7 +15,7 @@
   <table *ngIf="dataLoaded!=false">
     <tr class="mt-5 " *ngFor="let brand of brands">
       <label class="mx-3" >
-        <input class="form-check-input me-1" type="checkbox" value="" />
+        <input (click)="setCurrentBrand(brand)" [routerLink]="getCurrentBrand(brand)" class="form-check-input me-1" type="checkbox" value="" [checked]="getCheckBox(brand)" />
         {{ brand.brandName }}
       </label>
     </tr>

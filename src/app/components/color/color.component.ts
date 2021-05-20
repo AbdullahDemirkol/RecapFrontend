@@ -11,6 +11,8 @@ export class ColorComponent implements OnInit {
 
   colors:Color[]=[];
   dataLoaded:boolean=false;
+  currentColor:Color={colorId:0,colorName:""};
+  dataCheckbox=false;
 
   constructor(private colorService:ColorService) { }
 
@@ -23,5 +25,26 @@ export class ColorComponent implements OnInit {
       this.colors=response.data;
       this.dataLoaded=true;
     })
+  }
+
+  setCurrentColor(color:Color){
+    this.currentColor=color;
+    this.dataCheckbox=true;
+  }
+  getCurrentColor(color:Color){
+    if(color==this.currentColor && this.dataCheckbox==true){
+      return "/cars";
+    }
+    else{
+      return "/cars/color/"+color.colorName;
+    }
+  }
+  getCheckBox(color:Color){
+    if(color==this.currentColor && this.dataCheckbox==true){
+      return true;
+    }
+    else{
+      return false;
+    }
   }
 }

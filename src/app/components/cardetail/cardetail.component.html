@@ -1,0 +1,114 @@
+
+  <div class="container mt-4">
+    <div class="text-center mt-5" *ngIf="dataLoaded==false">
+      <div class="spinner-grow text-danger" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <div class="spinner-grow text-warning" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <div class="spinner-grow text-info" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+
+    
+    <!-- <div class="card"><div id="carouselExampleFade" class="carousel slide carousel-fade  text-center" data-bs-ride="carousel"  >
+        <img *ngIf="!cardetail.carImages[0]"  src="{{defaultPath}}\images\logo.jpg"  class="d-block" height="750px" width="100%" alt="...">
+        <div class="carousel-inner  text-center">
+          <div *ngIf="cardetail.carImages[0]" class="carousel-item active" >
+            <img src="{{defaultPath}}{{cardetail.carImages[0]}}"  class="d-block" height="700px" width="100%" alt="...">
+          </div>
+          <div *ngIf="cardetail.carImages[1]" class="carousel-item" >
+            <img src="{{defaultPath}}{{cardetail.carImages[1]}}"  class="d-block" height="700px" width="100%" alt="...">
+          </div>
+          <div *ngIf="cardetail.carImages[2]" class="carousel-item" >
+            <img src="{{defaultPath}}{{cardetail.carImages[2]}}"  class="d-block" height="700px" width="100%" alt="...">
+          </div>
+          <div *ngIf="cardetail.carImages[3]" class="carousel-item" >
+            <img src="{{defaultPath}}{{cardetail.carImages[3]}}"  class="d-block" height="700px" width="100%" alt="...">
+          </div>
+          <div *ngIf="cardetail.carImages[4]" class="carousel-item" >
+            <img src="{{defaultPath}}{{cardetail.carImages[4]}}"  class="d-block" height="700px" width="100%" alt="...">
+          </div>
+        </div>
+        <button *ngIf="cardetail.carImages[1]" class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button *ngIf="cardetail.carImages[1]" class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <h5 class="card-title">
+            {{ cardetail.brandName }} {{ cardetail.description }}
+            <span class="float-end" style="color: red;" > {{ cardetail.dailyPrice }}$ </span>
+          </h5>
+        </div>
+        <p class="card-text">Yıl : {{ cardetail.modelYear }}</p>
+        <p class="card-text">Renk : {{ cardetail.colorName }} </p>
+      </div>
+    </div> -->
+
+
+    <div class="card card-body mb-4" style=" border-radius: 10px;" *ngFor="let cardetail of carDetails">
+      <h2 class="card-title">{{ cardetail.brandName }} {{ cardetail.description }}</h2>
+      <div id="carouselExampleFade" class="carousel slide carousel-fade  text-center" data-bs-ride="carousel"  >
+        <img *ngIf="!cardetail.carImages[0]"  src="{{defaultPath}}\images\logo.jpg"  class="d-block" height="750px" width="100%" alt="...">
+        <div class="carousel-inner  text-center">
+          <div *ngIf="cardetail.carImages[0]" class="carousel-item active" >
+            <img src="{{defaultPath}}{{cardetail.carImages[0]}}"  class="d-block" height="700px" width="100%" alt="...">
+          </div>
+          <div *ngIf="cardetail.carImages[1]" class="carousel-item" >
+            <img src="{{defaultPath}}{{cardetail.carImages[1]}}"  class="d-block" height="700px" width="100%" alt="...">
+          </div>
+          <div *ngIf="cardetail.carImages[2]" class="carousel-item" >
+            <img src="{{defaultPath}}{{cardetail.carImages[2]}}"  class="d-block" height="700px" width="100%" alt="...">
+          </div>
+          <div *ngIf="cardetail.carImages[3]" class="carousel-item" >
+            <img src="{{defaultPath}}{{cardetail.carImages[3]}}"  class="d-block" height="700px" width="100%" alt="...">
+          </div>
+          <div *ngIf="cardetail.carImages[4]" class="carousel-item" >
+            <img src="{{defaultPath}}{{cardetail.carImages[4]}}"  class="d-block" height="700px" width="100%" alt="...">
+          </div>
+        </div>
+        <button *ngIf="cardetail.carImages[1]" class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button *ngIf="cardetail.carImages[1]" class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      <div class="row mb-4 mt-4">
+        <div class="col-sm-2">
+            <h4 class="card-title " style="text-align: center;">Marka</h4>
+            <p class="card-text"  style="text-align: center;" >{{cardetail.brandName}} </p>
+        </div>
+        <div class="col-sm-2">
+          <h4 class="card-title" style="text-align: center;">Model</h4>
+          <p class="card-text"  style="text-align: center;" > {{cardetail.description}}</p>
+      </div>
+      <div class="col-sm-2">
+          <h4 class="card-title" style="text-align: center;">Model Yılı</h4>
+          <p class="card-text"  style="text-align: center;" > {{cardetail.modelYear}}</p>
+      </div>
+        <div class="col-sm-2">
+            <h4 class="card-title" style="text-align: center;">Renk</h4>
+            <p class="card-text"  style="text-align: center;" > {{cardetail.colorName}}</p>
+        </div>
+        
+        <div class="col-sm-3">
+            <h4 class="card-title " style="text-align: center;">Kiralama Fiyatı</h4>
+            <p class="card-text"  style="text-align: center;" >{{cardetail.dailyPrice |currency:"₺"}} </p>
+        </div>             
+    </div>
+      <a class="mt-4" href="#" class="btn btn-primary">Kirala</a>
+    </div>
+  </div>
+
+  

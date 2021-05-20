@@ -10,19 +10,20 @@
   </div>
 </div>
 
-<div class="row row-cols-1 row-cols-md-2 g-4 mt-3">
-  <div class="col" *ngFor="let car of cardetails">
+<div class="row row-cols-1 row-cols-md-2 g-4 mt-3 mb-5">
+  <div class="col" *ngFor="let cardetail of carDetails" routerLink="/cars/cardetail/{{cardetail.id}}">
     <div class="card">
-      <img src="" class="card-img-top" alt="..." />
+      <img *ngIf="!cardetail.carImages[0]" height="300px" src="{{ defaultPath }}\images\logo.jpg" class="card-img-top" alt="Resim Yüklenemedi" />
+      <img *ngIf="cardetail.carImages[0]" height="300px" src="{{ defaultPath }}{{ cardetail.carImages[1] }}" class="card-img-top" alt="Resim Yüklenemedi" />
       <div class="card-body">
         <div class="row">
           <h5 class="card-title">
-            {{ car.brandName }} {{ car.description }}
-            <span class="float-end" style="color: red;" > {{ car.dailyPrice }}$ </span>
+            {{ cardetail.brandName }} {{ cardetail.description }}
+            <span class="float-end" style="color: red;" > {{ cardetail.dailyPrice }}$ </span>
           </h5>
         </div>
-        <p class="card-text">Yıl : {{ car.modelYear }}</p>
-        <p class="card-text">Renk : {{ car.colorName }}</p>
+        <p class="card-text">Yıl : {{ cardetail.modelYear }}</p>
+        <p class="card-text">Renk : {{ cardetail.colorName }} </p>
       </div>
     </div>
   </div>

@@ -16,7 +16,7 @@
     <table *ngIf="dataLoaded!=false">
       <tr class="mt-5 " *ngFor="let color of colors">
         <label class="mx-3" >
-          <input class="form-check-input me-1" type="checkbox" value="" />
+        <input (click)="setCurrentColor(color)" [routerLink]="getCurrentColor(color)" class="form-check-input me-1" type="checkbox" value="" [checked]="getCheckBox(color)" />
           {{color.colorName}}
         </label>
       </tr>
